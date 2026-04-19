@@ -53,7 +53,7 @@ project-root/
 2. Set your Python working directory to the project root folder.
 3. Ensure the baseline dataset `MASTER_RELEASE_SCHEDULE_UPDATE4.csv` is located in the root or `/data` directory. Note: You must provide your own TMDb API key in the configuration block to run the web scraper.
 4. Open `imageProject.ipynb`.
-5. Run all cells in order.
+5. Run all cells in order. NOTE: The jupyter notebook file goes through several iterations of various datasets, some of which are not included becuase of relevance. In order to complete the statistical analysis on the entire poster dataset, the FEATURE_ENGINEERED_DATA_ALL.csv is necessary, for it includes all film poster metadata, as well as various other extracted visual features. The updated statistical analysis on all of the poster data starts on the markdown cell with the "Doing EDA for all posters" text.
 
 **The notebook will:**
 - Filter the baseline dataset for reliable global box office data
