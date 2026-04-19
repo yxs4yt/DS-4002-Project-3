@@ -1,52 +1,66 @@
 # DS4002 Data Science Project 3
 
 ## Overview 
-This project analyzes crime data to examine how crime patterns vary by season and time of day. The analysis focuses on identifying when crime is most prevalent, the most common types of crimes, and how timing and seasonality interact with crime categories.
+This project analyzes the relationship between qualitative movie poster aesthetics (e.g., dominant color palettes, brightness, saturation, face density) and global box office performance. The analysis aims to identify whether visual design choices can reliably predict unexpected financial success, and evaluates how these visual metrics interact with critical seasonal release windows.
 
-All analyses are conducted in a Jupyter Notebook environment, where the data is cleaned, timestamps are processed, and visualizations are generated. The project is fully reproducible using the provided notebook and dataset.
+All analyses are conducted in a Jupyter Notebook environment, utilizing K-Means clustering for color extraction, RetinaFace neural networks for facial detection, and advanced statistical modeling (Interaction OLS Regression and Random Forest Regressor). The project is fully reproducible using the provided notebook and dataset.
 
 ## Repository Contents
-The repository includes the main analysis notebook, the dataset used for the project, and any generated outputs. The structure is organized to clearly separate raw data, code, and results.
+The repository includes the main analysis notebook, the comprehensive movie poster datasets, extracted feature metadata, and all generated model evaluations. The structure is organized to clearly separate raw data, processing code, and presentation-ready results.
 
 ## 1. Software and Platform 
 - GitHub Codespaces
 - Jupyter Notebook
 
-# Required Packages 
+**Required Packages** 
 - pandas
+- numpy
 - matplotlib
-- seaborn
-- scipy
+- opencv-python (cv2)
+- scikit-learn
+- retinaface
+- statsmodels
+- requests
 
-# Platforms 
-- MacoS
+**Platforms** 
+- macOS 
+
 
 ## 2. Repository Structure
+```text
 project-root/
 ├── data/
-│   └── Master_Release.csv
-├── analysisplan.ipynb
+│   ├── MASTER_RELEASE_SCHEDULE_UPDATE4.csv
+│   ├── ALL_POSTER_METADATA.csv
+│   └── FEATURE_ENGINEERED_DATA_ALL.csv
+├── scripts/
+│   └── imageProject.ipynb
 ├── README.md
-└── output/
-    └── (generated tables or figures)
+├── all_posters/
+└── outputs/
+    └── (generated tables, OLS summaries, and figures)
+```
 
 **File Descriptions**
-data/Master_Release.csv: Primary dataset used for all analyses (only relevant dataset).
-analysisplan.ipynb: Main Jupyter Notebook containing all data cleaning, analysis, and visualizations.
-README.md: Project documentation and reproduction instructions.
-output/: Folder for any generated figures or exported results.
+*   **`data/MASTER_RELEASE_SCHEDULE_UPDATE4.csv`**: This dataset is the basis for the entire project, which contains the unique film IMDb id's required to scrape the poster metadata for each film. It includes lots of information for each film, most of which is not necessary and/or relevant for this project.
+*   **`data/ALL_POSTER_METADATA.csv`**: The primary dataset featuring all compiled baseline film metadata (like TMDb paths and financials) for the ~21,800 posters.
+*   **`data/FEATURE_ENGINEERED_DATA_ALL.csv`**: The finalized dataset containing all extracted visual features (color palettes, face density, brightness, etc.) used directly in the statistical modeling.
+*   **`scripts/imageProject.ipynb`**: Main Jupyter Notebook containing the data pipeline, API scraping, image analysis, and statistical modeling.
+*   **`README.md`**: Project documentation and reproduction instructions.
+*   **`all_posters/`**: Local directory where the scraped movie posters from the TMDb API are saved.
+*   **`outputs/`**: Folder containing exported high-resolution figures, regression summaries, and predictive modeling evaluation tables.
 
-**3. Instructions for Reproducing Results**
-1. Open the repository in GitHub and launch Codespaces.
-2. Set the working directory to the project root folder.
-3. Ensure the dataset Master_Release.csv is located in the data/ folder.
-4. Open analysisplan.ipynb.
+## 3. Instructions for Reproducing Results
+1. Open the repository in GitHub and launch Codespaces (or clone locally).
+2. Set your Python working directory to the project root folder.
+3. Ensure the baseline dataset `MASTER_RELEASE_SCHEDULE_UPDATE4.csv` is located in the root or `/data` directory. Note: You must provide your own TMDb API key in the configuration block to run the web scraper.
+4. Open `imageProject.ipynb`.
 5. Run all cells in order.
 
-The notebook will:
-- Load and clean the crime dataset
-- Extract and structure timestamp information
-- Analyze crime trends by season and time of day
-- Identify the top 5 most common crimes
-- Visualize relationships between crime type, timing, and season
-- Perform statistical analysis (including t-tests) to evaluate differences in crime patterns
+**The notebook will:**
+- Filter the baseline dataset for reliable global box office data
+- Connect to the TMDb API to download thousands of movie poster images
+- Filter images through an OpenCV pipeline to extract brightness, saturation, and custom "Orange/Teal" color scoring
+- Utilize a RetinaFace neural network to detect and quantify "face density" per poster
+- Train linear interaction models (OLS) and a Random Forest Regressor to predict log-transformed global revenue
+- Export final correlation statistics, model validations, and visualizations to the outputs folder
