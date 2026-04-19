@@ -36,18 +36,16 @@ project-root/
 ├── scripts/
 │   └── imageProject.ipynb
 ├── README.md
-├── all_posters/
 └── outputs/
     └── (generated tables, OLS summaries, and figures)
 ```
 
 **File Descriptions**
 *   **`data/MASTER_RELEASE_SCHEDULE_UPDATE4.csv`**: This dataset is the basis for the entire project, which contains the unique film IMDb id's required to scrape the poster metadata for each film. It includes lots of information for each film, most of which is not necessary and/or relevant for this project.
-*   **`data/ALL_POSTER_METADATA.csv`**: The primary dataset featuring all compiled baseline film metadata (like TMDb paths and financials) for the ~21,800 posters.
+*   **`data/ALL_POSTER_METADATA.csv`**: The primary dataset featuring all compiled baseline film metadata (like TMDb paths and financials) for the ~21,800 posters. NOTE: in the juptyer notebook file, this data is an overwritten version of a previous SAMPLED_POSTER_METADATA file, but the name has been changed on GitHub to avoid confusion and clarify that this file contains the metadata for ALL posters, and not a sample of them.
 *   **`data/FEATURE_ENGINEERED_DATA_ALL.csv`**: The finalized dataset containing all extracted visual features (color palettes, face density, brightness, etc.) used directly in the statistical modeling.
-*   **`scripts/imageProject.ipynb`**: Main Jupyter Notebook containing the data pipeline, API scraping, image analysis, and statistical modeling.
+*   **`scripts/imageProject.ipynb`**: Main Jupyter Notebook containing the data pipeline, API scraping, image analysis, and statistical modeling. NOTE: This file is split into three distinct sections: the first being the data collection/scraping, the second being the statistical analysis applied to a 1000 film sample, and the third being the statistical analysis applied to the entire poster set.
 *   **`README.md`**: Project documentation and reproduction instructions.
-*   **`all_posters/`**: Local directory where the scraped movie posters from the TMDb API are saved.
 *   **`outputs/`**: Folder containing exported high-resolution figures, regression summaries, and predictive modeling evaluation tables.
 
 ## 3. Instructions for Reproducing Results
