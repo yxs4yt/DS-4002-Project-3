@@ -1,0 +1,13 @@
+Feature,Importance Weight,Importance (%)
+avg_saturation,0.2574686465355833,25.75
+avg_brightness,0.2563182002910127,25.63
+orange_teal_score,0.15843319082574292,15.84
+face_density,0.1020671062931908,10.21
+interaction_OT_x_Other,0.10122122250572577,10.12
+release_window_Other,0.07792712787794036,7.79
+interaction_OT_x_Summer,0.02041087134433311,2.04
+interaction_OT_x_Spring,0.011480346809001198,1.15
+interaction_OT_x_Holiday,0.007838489313764624,0.78
+release_window_Summer,0.00274089452110844,0.27
+release_window_Spring,0.0020795952177776697,0.21
+release_window_Holiday,0.002014308464819175,0.2

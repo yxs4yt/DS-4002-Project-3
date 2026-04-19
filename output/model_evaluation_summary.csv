@@ -1,0 +1,4 @@
+Model Type,R-Squared,MAE,RMSE
+Base Linear Regression (OLS),0.0957,2.368,2.8958
+Interaction Linear Regression (OLS),0.096,2.3677,2.8953
+Random Forest Regressor (ML),0.0528,2.382,2.9443
